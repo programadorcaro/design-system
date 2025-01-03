@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0",
+    "turbo": "^2.3.3"
+  },
+  "packageManager": "npm@8.19.0"
+}
