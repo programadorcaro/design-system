@@ -1,4 +1,0 @@
-import{ae as o,af as s}from"./index-tQJ0lNDI.js";import{useMDXComponents as e}from"./index-i9ge_0ZT.js";import{T as i}from"./index-5HgOUMXj.js";import{r as m}from"./index-BdGKUmjE.js";import"./iframe-D_56qTLJ.js";import"../sb-preview/runtime.js";import"./index-BpYrhlGc.js";import"./index-B2_MnM5W.js";import"./index-CbU3SNpG.js";import"./index-CHGET4sZ.js";import"./index-DrFu-skq.js";function n(r){const t={h1:"h1",p:"p",...e(),...r.components};return o.jsxs(o.Fragment,{children:[o.jsx(s,{title:"Tokens/Border Radius"}),`
-`,o.jsx(t.h1,{id:"border-radius",children:"Border Radius"}),`
-`,o.jsx(t.p,{children:"Estas são os border radius do Les UI."}),`
-`,o.jsx(i,{tokens:m})]})}function k(r={}){const{wrapper:t}={...e(),...r.components};return t?o.jsx(t,{...r,children:o.jsx(n,{...r})}):n(r)}export{k as default};

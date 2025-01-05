@@ -1,12 +1,15 @@
 {
   "name": "@les-ui/react",
   "version": "1.0.0",
-  "main": "./dist/index.js",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
-    "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
-    "dev": "tsup src/index.tsx --format esm,cjs --dts --external react --watch"
+    "build": "tsup src/index.tsx --format esm,cjs --dts --external react --inject-style",
+    "dev": "tsup src/index.tsx --format esm,cjs --dts --external react --watch --inject-style"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +17,6 @@
   "description": "",
   "devDependencies": {
     "@les-ui/eslint-config": "*",
-    "@les-ui/tokens": "*",
     "@les-ui/ts-config": "*",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
@@ -25,10 +27,12 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "react": "^19.0.0",
     "tsup": "^8.3.5",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.35",
+    "autoprefixer": "^10.4.17"
   },
   "dependencies": {
-    "@stitches/react": "^1.2.8",
     "@les-ui/tokens": "*"
   }
 }

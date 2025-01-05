@@ -1,13 +1,14 @@
-import { ComponentProps } from "@stitches/react";
-import { styled } from "../styles";
+import { HTMLAttributes } from "react";
 
-export const Box = styled("div", {
-  padding: "$4",
-  borderRadius: "$md",
-  background: "#000",
-  fontFamily: "$default",
-});
+export interface BoxProps extends HTMLAttributes<HTMLDivElement> {}
 
-export type BoxProps = ComponentProps<typeof Box>;
+export function Box({ className = "", ...props }: BoxProps) {
+  return (
+    <div
+      className={`p-4 rounded-md bg-black font-default ${className}`}
+      {...props}
+    />
+  );
+}
 
 Box.displayName = "Box";

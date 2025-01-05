@@ -1,61 +1,49 @@
-import { ComponentProps } from "@stitches/react";
-import { styled } from "../styles";
+import { HTMLAttributes } from "react";
 
-export const Text = styled("p", {
-  fontFamily: "$default",
-  lineHeight: "$base",
-  margin: 0,
-  color: "#ccc",
+export interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
+  size?:
+    | "xxs"
+    | "xs"
+    | "sm"
+    | "md"
+    | "lg"
+    | "xl"
+    | "2xl"
+    | "4xl"
+    | "5xl"
+    | "6xl"
+    | "7xl"
+    | "8xl"
+    | "9xl";
+}
 
-  variants: {
-    size: {
-      xxs: {
-        fontSize: "$xxs",
-      },
-      xs: {
-        fontSize: "$xs",
-      },
-      sm: {
-        fontSize: "$sm",
-      },
-      md: {
-        fontSize: "$md",
-      },
-      lg: {
-        fontSize: "$lg",
-      },
-      xl: {
-        fontSize: "$xl",
-      },
-      "2xl": {
-        fontSize: "$2xl",
-      },
-      "4xl": {
-        fontSize: "$4xl",
-      },
-      "5xl": {
-        fontSize: "$5xl",
-      },
-      "6xl": {
-        fontSize: "$6xl",
-      },
-      "7xl": {
-        fontSize: "$7xl",
-      },
-      "8xl": {
-        fontSize: "$8xl",
-      },
-      "9xl": {
-        fontSize: "$9xl",
-      },
-    },
-  },
+const sizeClasses = {
+  xxs: "text-xxs",
+  xs: "text-xs",
+  sm: "text-sm",
+  md: "text-base",
+  lg: "text-lg",
+  xl: "text-xl",
+  "2xl": "text-2xl",
+  "4xl": "text-4xl",
+  "5xl": "text-5xl",
+  "6xl": "text-6xl",
+  "7xl": "text-7xl",
+  "8xl": "text-8xl",
+  "9xl": "text-9xl",
+};
 
-  defaultVariants: {
-    size: "md",
-  },
-});
-
-export type TextProps = ComponentProps<typeof Text>;
+export function Text({ size = "md", className = "", ...props }: TextProps) {
+  return (
+    <p
+      className={`
+        font-default leading-base m-0 text-gray-300
+        ${sizeClasses[size]}
+        ${className}
+      `}
+      {...props}
+    />
+  );
+}
 
 Text.displayName = "Text";

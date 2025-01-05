@@ -13,10 +13,6 @@ const meta: Meta<HeadingProps> = {
       control: "inline-radio",
       options: ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl"],
     },
-    as: {
-      control: "inline-radio",
-      options: ["h1", "h2", "h3", "h4", "h5", "h6"],
-    },
   },
 };
 
@@ -28,7 +24,6 @@ export const Default: Story = {};
 export const CustomText: Story = {
   args: {
     children: "strong text",
-    as: "strong",
     size: "lg",
   },
 };

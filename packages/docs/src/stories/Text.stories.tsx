@@ -40,7 +40,6 @@ export const Default: Story = {};
 export const CustomText: Story = {
   args: {
     children: "strong text",
-    as: "strong",
     size: "lg",
   },
 };

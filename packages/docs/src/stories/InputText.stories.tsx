@@ -37,19 +37,19 @@ export const Default: Story = {};
 // Size variants
 export const Small: Story = {
   args: {
-    size: "sm",
+    inputSize: "sm",
   },
 };
 
 export const Medium: Story = {
   args: {
-    size: "md",
+    inputSize: "md",
   },
 };
 
 export const Large: Story = {
   args: {
-    size: "lg",
+    inputSize: "lg",
   },
 };
 

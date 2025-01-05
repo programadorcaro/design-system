@@ -1,53 +1,34 @@
-import { ComponentProps } from "@stitches/react";
-import { styled } from "../styles";
+import { InputHTMLAttributes } from "react";
 
-export const TextInput = styled("input", {
-  all: "unset",
-  fontFamily: "$default",
-  fontSize: "$sm",
-  boxSizing: "border-box",
-  width: "100%",
-  borderRadius: "$sm",
-  padding: "$3 $4",
-  backgroundColor: "$gray900",
-  color: "$white",
+export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  inputSize?: "sm" | "md" | "lg";
+}
 
-  "&::placeholder": {
-    color: "$gray400",
-  },
+const sizeClasses = {
+  sm: "px-3 py-2 text-sm",
+  md: "px-4 py-3 text-md",
+  lg: "px-5 py-4 text-lg",
+};
 
-  "&:focus": {
-    outline: "2px solid $colors$ignite500",
-    outlineOffset: "2px",
-  },
-
-  "&:disabled": {
-    cursor: "not-allowed",
-    opacity: 0.5,
-  },
-
-  variants: {
-    size: {
-      sm: {
-        padding: "$2 $3",
-        fontSize: "$sm",
-      },
-      md: {
-        padding: "$3 $4",
-        fontSize: "$md",
-      },
-      lg: {
-        padding: "$4 $5",
-        fontSize: "$lg",
-      },
-    },
-  },
-
-  defaultVariants: {
-    size: "md",
-  },
-});
-
-export type TextInputProps = ComponentProps<typeof TextInput>;
+export function TextInput({
+  inputSize = "md",
+  className = "",
+  ...props
+}: TextInputProps) {
+  return (
+    <input
+      className={`
+        font-default box-border w-full rounded-sm
+        bg-gray-900 text-white
+        placeholder:text-gray-400
+        focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2
+        disabled:cursor-not-allowed disabled:opacity-50
+        ${sizeClasses[inputSize]}
+        ${className}
+      `}
+      {...props}
+    />
+  );
+}
 
 TextInput.displayName = "TextInput";

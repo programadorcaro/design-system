@@ -1,4 +1,0 @@
-import{ae as t,af as r}from"./index-tQJ0lNDI.js";import{useMDXComponents as s}from"./index-i9ge_0ZT.js";import{T as i}from"./index-5HgOUMXj.js";import{a as m}from"./index-BdGKUmjE.js";import"./iframe-D_56qTLJ.js";import"../sb-preview/runtime.js";import"./index-BpYrhlGc.js";import"./index-B2_MnM5W.js";import"./index-CbU3SNpG.js";import"./index-CHGET4sZ.js";import"./index-DrFu-skq.js";function e(o){const n={h1:"h1",p:"p",...s(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"Tokens/Font Weights"}),`
-`,t.jsx(n.h1,{id:"font-weights",children:"Font Weights"}),`
-`,t.jsx(n.p,{children:"Estas são os pesos de fontes do Les UI."}),`
-`,t.jsx(i,{tokens:m})]})}function M(o={}){const{wrapper:n}={...s(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(e,{...o})}):e(o)}export{M as default};
