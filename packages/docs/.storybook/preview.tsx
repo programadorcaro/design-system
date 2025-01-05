@@ -1,3 +1,4 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
 
@@ -22,5 +23,7 @@ const preview: Preview = {
     // }
   },
 };
+
+export const decorators = [(Story) => <Story />];
 
 export default preview;
