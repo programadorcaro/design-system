@@ -22,16 +22,11 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  viteFinal: (config) => {
-    return {
-      ...config,
-      base: "/design-system/",
-      build: {
-        ...config.build,
-        outDir: "storybook-static",
-        chunkSizeWarningLimit: 1600,
-      },
-    };
+  viteFinal: (config, { configType }) => {
+    if (configType === "PRODUCTION") {
+      config.base = "/design-system/";
+    }
+    return config;
   },
 };
 export default config;

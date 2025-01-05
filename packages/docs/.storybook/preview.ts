@@ -12,14 +12,14 @@ const preview: Preview = {
     docs: {
       theme: themes.dark,
     },
-    staticDirs: ["../public"],
-    base: "/design-system/",
-    backgrounds: {
-      disable: true,
-      grid: {
-        disable: true,
-      },
-    },
+    // staticDirs: ['../public'],
+    // base: '/design-system/',
+    // backgrounds: {
+    //   disable: true,
+    //   grid: {
+    //     disable: true
+    //   }
+    // }
   },
 };
 
