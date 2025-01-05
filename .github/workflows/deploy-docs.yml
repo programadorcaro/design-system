@@ -22,7 +22,6 @@ jobs:
 
       - name: Deploy storybook to GitHub Pages
         working-directory: packages/docs
-        run: npm run build-storybook 
         run: npm run deploy-storybook -- --ci
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
