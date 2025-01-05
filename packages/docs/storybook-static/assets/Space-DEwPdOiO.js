@@ -1,0 +1,4 @@
+import{j as t}from"./jsx-runtime-BjgbQsUx.js";import{useMDXComponents as n}from"./index-3rgQkYFR.js";import{ae as r}from"./index-BvrxXxmD.js";import{T as m}from"./index-CDR_39Zh.js";import{s as i}from"./index-BdGKUmjE.js";import"./index-D2MAbzvX.js";import"./index-RigO-4kf.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-B4jPfUGe.js";import"../sb-preview/runtime.js";import"./index-B0-ZUjwJ.js";import"./index-CTOC-uzv.js";import"./index-CHGET4sZ.js";import"./index-DrFu-skq.js";function s(o){const e={h1:"h1",p:"p",...n(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"Tokens/Spaces"}),`
+`,t.jsx(e.h1,{id:"spaces",children:"Spaces"}),`
+`,t.jsx(e.p,{children:"Estas são os espaçamentos do Les UI."}),`
+`,t.jsx(m,{tokens:i,hasRemValue:!0})]})}function T(o={}){const{wrapper:e}={...n(),...o.components};return e?t.jsx(e,{...o,children:t.jsx(s,{...o})}):s(o)}export{T as default};

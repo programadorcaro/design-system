@@ -23,9 +23,15 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: (config) => {
-    config.base = "/design-system/";
-
-    return config;
+    return {
+      ...config,
+      base: "/design-system/",
+      build: {
+        ...config.build,
+        outDir: "storybook-static",
+        chunkSizeWarningLimit: 1600,
+      },
+    };
   },
 };
 export default config;
