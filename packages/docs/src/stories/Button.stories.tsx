@@ -2,37 +2,58 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "@les-ui/react";
 
 const meta: Meta<ButtonProps> = {
-  title: "Button",
+  title: "Form/Button",
   component: Button,
   tags: ["autodocs"],
+  args: {
+    // Default args for all stories
+    children: "Button",
+    size: "sm",
+  },
+  argTypes: {
+    size: {
+      description: "Size of the button",
+      control: "inline-radio",
+      options: ["sm", "md", "lg", "xl"],
+    },
+    children: {
+      description: "Button content",
+      control: "text",
+    },
+    disabled: {
+      description: "Disabled state of the button",
+      control: "boolean",
+    },
+  },
 };
 
 export default meta;
 type Story = StoryObj<ButtonProps>;
 
-export const Primary: Story = {
+// Base story with default size (sm)
+export const Default: Story = {};
+
+// Size variants
+export const Small: Story = {
   args: {
-    children: "Button",
+    size: "sm",
   },
 };
 
 export const Medium: Story = {
   args: {
-    children: "Button",
     size: "md",
   },
 };
 
 export const Large: Story = {
   args: {
-    children: "Button",
     size: "lg",
   },
 };
 
 export const XLarge: Story = {
   args: {
-    children: "Button",
     size: "xl",
   },
 };
