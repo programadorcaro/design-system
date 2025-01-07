@@ -8,7 +8,7 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup src/index.tsx --format esm,cjs --dts --external react --inject-style",
+    "build": "tsup src/index.tsx --format esm,cjs --dts --external react --inject-style --minify",
     "dev": "tsup src/index.tsx --format esm,cjs --dts --external react --watch --inject-style"
   },
   "keywords": [],
