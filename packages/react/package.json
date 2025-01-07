@@ -1,6 +1,6 @@
 {
   "name": "@les-ui/react",
-  "version": "0.0.1",
+  "version": "4.0.0",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
