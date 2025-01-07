@@ -1,4 +1,4 @@
-import "./lib/styles";
+import "./styles/globals.css";
 
 export * from "./components/box";
 export * from "./components/button";

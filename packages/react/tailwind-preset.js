@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "../../packages/react/src/**/*.{js,jsx,ts,tsx}",
-    // This allows projects using your library to process the components
     "./node_modules/@les-ui/react/dist/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
@@ -13,8 +10,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
   corePlugins: {
     preflight: false,
   }
-}
+} 

@@ -1,11 +1,12 @@
 {
   "name": "@les-ui/react",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist/**"
+    "dist/**",
+    "tailwind-preset.js"
   ],
   "scripts": {
     "build": "tsup src/index.tsx --format esm,cjs --dts --external react --inject-style --minify",
