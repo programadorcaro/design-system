@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.0.3
+
+### Patch Changes
+
+- Add option to customize component by className
+
 ## 4.0.2
 
 ### Patch Changes
