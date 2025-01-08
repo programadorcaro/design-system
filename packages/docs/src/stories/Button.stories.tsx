@@ -66,17 +66,10 @@ export const GradientOrangePink: Story = {
   },
 };
 
-export const GradientBluePurple: Story = {
+export const Purple: Story = {
   args: {
-    className: "bg-gradient-to-r from-blue-400 to-purple-500 hover:from-blue-500 hover:to-purple-600 text-white border-none",
+    className: "bg-purple-500 text-white border-none",
     children: "Gradient Blue-Purple",
-  },
-};
-
-export const GradientGreenTeal: Story = {
-  args: {
-    className: "bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white border-none",
-    children: "Gradient Green-Teal",
   },
 };
 

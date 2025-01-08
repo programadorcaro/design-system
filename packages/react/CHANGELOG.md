@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.0.4
+
+### Patch Changes
+
+- Fix tailwind preset
+
 ## 4.0.3
 
 ### Patch Changes
