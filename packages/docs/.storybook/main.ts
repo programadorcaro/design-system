@@ -1,10 +1,10 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-
 import { dirname, join } from "path";
 
 function getAbsolutePath(value: string): string {
   return dirname(require.resolve(join(value, "package.json")));
 }
+
 const config: StorybookConfig = {
   stories: ["../src/pages/**/*.mdx", "../src/stories/**/*.stories.tsx"],
   addons: [
@@ -18,17 +18,15 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  viteFinal: (config, { configType }) => {
-    if (configType === "PRODUCTION") {
-      config.base = "/design-system/";
-    }
+  viteFinal: async (config) => {
     return {
       ...config,
       build: {
         ...config.build,
-        sourcemap: true
-      }
+        sourcemap: true,
+      },
     };
   },
 };
+
 export default config;
