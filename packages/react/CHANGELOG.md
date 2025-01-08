@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.1.0
+
+### Minor Changes
+
+- Add default color to button
+
 ## 4.0.4
 
 ### Patch Changes

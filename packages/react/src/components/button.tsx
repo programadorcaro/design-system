@@ -16,6 +16,7 @@ export function Button({ size = "sm", className, ...props }: ButtonProps) {
   return (
     <button
       className={cn(
+        "bg-orange-400 text-white",
         "font-default font-medium text-center box-border rounded-sm",
         "flex items-center justify-center gap-2 cursor-pointer",
         sizeClasses[size],
