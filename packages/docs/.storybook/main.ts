@@ -21,6 +21,7 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     return {
       ...config,
+      base: '/design-system/',
       build: {
         ...config.build,
         sourcemap: true,

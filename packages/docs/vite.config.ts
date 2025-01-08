@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/design-system/' : '/',
+  base: '/design-system/',
   css: {
     postcss: {
       plugins: [
