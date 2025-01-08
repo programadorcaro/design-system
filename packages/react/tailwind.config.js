@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -5,8 +6,10 @@ module.exports = {
       fontFamily: {
         default: ["Poppins", "sans-serif"],
       },
-      // You can migrate your tokens here
     },
   },
   plugins: [],
-};
+  corePlugins: {
+    preflight: false,
+  }
+}

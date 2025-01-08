@@ -1,7 +1,13 @@
 # @les-ui/react
 
-## 1.0.0
+## 4.0.2
 
-### Major Changes
+### Patch Changes
 
-- Fix versions
+- Add global tailwind config to external libs
+
+## 4.0.1
+
+### Patch Changes
+
+- Add tailwind css to components
