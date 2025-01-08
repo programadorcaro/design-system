@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from "react";
+import { cn } from "../lib/utils";
 
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize?: "sm" | "md" | "lg";
@@ -12,20 +13,20 @@ const sizeClasses = {
 
 export function TextInput({
   inputSize = "md",
-  className = "",
+  className,
   ...props
 }: TextInputProps) {
   return (
     <input
-      className={`
-        font-default box-border w-full rounded-sm
-        bg-gray-900 text-white
-        placeholder:text-gray-400
-        focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2
-        disabled:cursor-not-allowed disabled:opacity-50
-        ${sizeClasses[inputSize]}
-        ${className}
-      `}
+      className={cn(
+        "font-default box-border w-full rounded-sm",
+        "bg-gray-900 text-white",
+        "placeholder:text-gray-400",
+        "focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2",
+        "disabled:cursor-not-allowed disabled:opacity-50",
+        sizeClasses[inputSize],
+        className
+      )}
       {...props}
     />
   );

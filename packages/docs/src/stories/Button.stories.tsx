@@ -57,3 +57,33 @@ export const XLarge: Story = {
     size: "xl",
   },
 };
+
+// Custom gradient stories
+export const GradientOrangePink: Story = {
+  args: {
+    className: "bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white border-none",
+    children: "Gradient Orange-Pink",
+  },
+};
+
+export const GradientBluePurple: Story = {
+  args: {
+    className: "bg-gradient-to-r from-blue-400 to-purple-500 hover:from-blue-500 hover:to-purple-600 text-white border-none",
+    children: "Gradient Blue-Purple",
+  },
+};
+
+export const GradientGreenTeal: Story = {
+  args: {
+    className: "bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white border-none",
+    children: "Gradient Green-Teal",
+  },
+};
+
+// Custom animation on hover
+export const AnimatedGradient: Story = {
+  args: {
+    className: "bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:bg-[size:400%] hover:animate-gradient-xy text-white border-none",
+    children: "Animated Gradient",
+  },
+};

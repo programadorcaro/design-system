@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
+import { cn } from "../lib/utils";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg" | "xl";
@@ -11,15 +12,15 @@ const sizeClasses = {
   xl: "px-8 py-5 h-16 text-xl",
 };
 
-export function Button({ size = "sm", className = "", ...props }: ButtonProps) {
+export function Button({ size = "sm", className, ...props }: ButtonProps) {
   return (
     <button
-      className={`
-        font-default font-medium text-center box-border rounded-sm
-        flex items-center justify-center gap-2 cursor-pointer
-        ${sizeClasses[size]}
-        ${className}
-      `}
+      className={cn(
+        "font-default font-medium text-center box-border rounded-sm",
+        "flex items-center justify-center gap-2 cursor-pointer",
+        sizeClasses[size],
+        className
+      )}
       {...props}
     />
   );

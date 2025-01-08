@@ -1,4 +1,5 @@
 import { HTMLAttributes } from "react";
+import { cn } from "../lib/utils";
 
 export interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
   size?:
@@ -33,14 +34,14 @@ const sizeClasses = {
   "9xl": "text-9xl",
 };
 
-export function Text({ size = "md", className = "", ...props }: TextProps) {
+export function Text({ size = "md", className, ...props }: TextProps) {
   return (
     <p
-      className={`
-        font-default leading-base m-0 text-gray-300
-        ${sizeClasses[size]}
-        ${className}
-      `}
+      className={cn(
+        "font-default leading-base m-0 text-gray-300",
+        sizeClasses[size],
+        className
+      )}
       {...props}
     />
   );

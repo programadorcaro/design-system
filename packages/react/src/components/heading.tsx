@@ -1,4 +1,5 @@
 import { HTMLAttributes } from "react";
+import { cn } from "../lib/utils";
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
@@ -15,18 +16,14 @@ const sizeClasses = {
   "5xl": "text-9xl",
 };
 
-export function Heading({
-  size = "md",
-  className = "",
-  ...props
-}: HeadingProps) {
+export function Heading({ size = "md", className, ...props }: HeadingProps) {
   return (
     <h2
-      className={`
-        font-default leading-tight m-0 text-gray-300
-        ${sizeClasses[size]}
-        ${className}
-      `}
+      className={cn(
+        "font-default leading-tight m-0 text-gray-300",
+        sizeClasses[size],
+        className
+      )}
       {...props}
     />
   );
