@@ -7,9 +7,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "deploy-storybook": "storybook-to-ghpages --source-branch=main --branch=gh-pages --existing-output-dir=storybook-static",
-    "build-storybook": "rm -rf storybook-static && storybook build",
-    "build": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages",
+    "build-storybook": "storybook build",
     "lint": "eslint ."
   },
   "dependencies": {

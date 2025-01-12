@@ -12,18 +12,18 @@ const config: StorybookConfig = {
     options: {},
   },
   core: {
-    builder: "@storybook/builder-vite"
+    builder: "@storybook/builder-vite",
   },
   features: {
-    "storyStoreV7": true
+    storyStoreV7: true,
   },
-  viteFinal: (config, { configType }) => {
-    if (configType === 'PRODUCTION') {
-      config.base = '/design-system/'
-    }
+  // viteFinal: (config, { configType }) => {
+  //   if (configType === 'PRODUCTION') {
+  //     config.base = '/design-system/'
+  //   }
 
-    return config
-  },
+  //   return config
+  // },
   docs: {
     autodocs: true,
   },
