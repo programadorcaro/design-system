@@ -13,17 +13,21 @@ const config: StorybookConfig = {
   },
   core: {
     builder: "@storybook/builder-vite",
+    disableTelemetry: true,
   },
   features: {
     storyStoreV7: true,
   },
-  // viteFinal: (config, { configType }) => {
-  //   if (configType === 'PRODUCTION') {
-  //     config.base = '/design-system/'
-  //   }
-
-  //   return config
-  // },
+  async viteFinal(config) {
+    return {
+      ...config,
+      base: "./",
+      build: {
+        ...config.build,
+        sourcemap: false,
+      },
+    };
+  },
   docs: {
     autodocs: true,
   },

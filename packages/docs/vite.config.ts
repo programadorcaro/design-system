@@ -5,7 +5,7 @@ import autoprefixer from "autoprefixer";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/design-system/",
+  base: process.env.NODE_ENV === "production" ? "/design-system/" : "/",
   css: {
     postcss: {
       plugins: [tailwindcss, autoprefixer],
