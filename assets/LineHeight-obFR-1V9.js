@@ -1,4 +1,0 @@
-import{j as t}from"./jsx-runtime-BvI67ttx.js";import{M as i}from"./index-drndZWUL.js";import{T as r}from"./index-Cmm1RTwR.js";import{l as m}from"./index-BdGKUmjE.js";import{useMDXComponents as o}from"./index-BktcKag7.js";import"./index-BEEaWAwe.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-D37KKNfG.js";import"../sb-preview/runtime.js";import"./index-D0hyOdTb.js";import"./index-CUcIvTau.js";import"./index-ogSvIofg.js";function s(n){const e=Object.assign({h1:"h1",p:"p"},o(),n.components);return t.jsxs(t.Fragment,{children:[t.jsx(i,{title:"Tokens/Line Heights"}),`
-`,t.jsx(e.h1,{id:"line-heights",children:"Line Heights"}),`
-`,t.jsx(e.p,{children:"Estas são as alturas de linha do Les UI."}),`
-`,t.jsx(r,{tokens:m})]})}function L(n={}){const{wrapper:e}=Object.assign({},o(),n.components);return e?t.jsx(e,Object.assign({},n,{children:t.jsx(s,n)})):s(n)}export{L as default};
