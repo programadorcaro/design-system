@@ -1,2 +1,0 @@
-import{j as s}from"./jsx-runtime-z8MfsBtr.js";import{B as a,T as c}from"./index-CH4_7Rdw.js";import"./index-C9rmetsa.js";const i={title:"Components/Box",component:a,tags:["autodocs"],args:{children:s.jsx(c,{style:{color:"white"},children:"Box"})}},o={};var e,t,r;o.parameters={...o.parameters,docs:{...(e=o.parameters)==null?void 0:e.docs,source:{originalSource:"{}",...(r=(t=o.parameters)==null?void 0:t.docs)==null?void 0:r.source}}};const d=["Default"];export{o as Default,d as __namedExportsOrder,i as default};
-//# sourceMappingURL=Box.stories-C0QfBM1y.js.map

@@ -4,4 +4,3 @@ function l(u){for(var d=[],i=1;i<arguments.length;i++)d[i-1]=arguments[i];var n=
 `)&&(e=String(t).split(`
 `).map(function(r,h){return h===0?r:""+g+r}).join(`
 `)),c+=e+n[f+1]}),c}export{l as d};
-//# sourceMappingURL=index-ogSvIofg.js.map
