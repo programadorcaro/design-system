@@ -15,17 +15,10 @@ const config: StorybookConfig = {
     builder: "@storybook/builder-vite",
     disableTelemetry: true,
   },
-  features: {
-    storyStoreV7: true,
-  },
-  async viteFinal(config) {
+  viteFinal(config) {
     return {
       ...config,
       base: "./",
-      build: {
-        ...config.build,
-        sourcemap: false,
-      },
     };
   },
   docs: {
