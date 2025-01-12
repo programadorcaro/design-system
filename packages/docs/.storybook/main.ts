@@ -1,28 +1,32 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
-  stories: ["../src/pages/**/*.mdx", "../src/stories/**/*.stories.tsx"],
-  addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "@storybook/addon-interactions",
+  stories: [
+    "../src/pages/**/*.stories.mdx",
+    "../src/stories/**/*.stories.tsx"
   ],
-  framework: {
-    name: "@storybook/react-vite",
-    options: {},
-  },
   docs: {
     autodocs: true,
   },
-  viteFinal: async (config) => {
-    return {
-      ...config,
-      base: '/design-system/',
-      build: {
-        ...config.build,
-        outDir: 'storybook-static',
-      },
-    };
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-a11y"
+  ],
+  framework: "@storybook/react",
+  core: {
+    builder: "@storybook/builder-vite"
+  },
+  features: {
+    "storyStoreV7": true
+  },
+  viteFinal: (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = '/05-design-system/'
+    }
+
+    return config
   },
 };
 
