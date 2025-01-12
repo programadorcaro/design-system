@@ -1,20 +1,16 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
-  stories: [
-    "../src/pages/**/*.stories.mdx",
-    "../src/stories/**/*.stories.tsx"
-  ],
-  docs: {
-    autodocs: true,
-  },
+  stories: ["../src/pages/**/*.mdx", "../src/stories/**/*.stories.tsx"],
   addons: [
-    "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
     "@storybook/addon-interactions",
-    "@storybook/addon-a11y"
   ],
-  framework: "@storybook/react",
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
   core: {
     builder: "@storybook/builder-vite"
   },
@@ -23,10 +19,13 @@ const config: StorybookConfig = {
   },
   viteFinal: (config, { configType }) => {
     if (configType === 'PRODUCTION') {
-      config.base = '/05-design-system/'
+      config.base = '/design-system/'
     }
 
     return config
+  },
+  docs: {
+    autodocs: true,
   },
 };
 
