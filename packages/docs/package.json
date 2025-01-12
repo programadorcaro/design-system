@@ -9,6 +9,7 @@
     "dev": "storybook dev -p 6006",
     "deploy-storybook": "storybook-to-ghpages --source-branch=main --branch=gh-pages --existing-output-dir=storybook-static",
     "build-storybook": "rm -rf storybook-static && storybook build",
+    "build": "build-storybook",
     "lint": "eslint ."
   },
   "dependencies": {
