@@ -14,6 +14,16 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
+  viteFinal: async (config) => {
+    return {
+      ...config,
+      base: '/design-system/',
+      build: {
+        ...config.build,
+        outDir: 'storybook-static',
+      },
+    };
+  },
 };
 
 export default config;

@@ -1,7 +1,0 @@
-import{_ as N}from"./iframe-jEXmcP1R.js";import"../sb-preview/runtime.js";const{global:f}=__STORYBOOK_MODULE_GLOBAL__,{addons:T}=__STORYBOOK_MODULE_PREVIEW_API__;var n="storybook/a11y",y=`${n}/result`,U=`${n}/request`,g=`${n}/running`,p=`${n}/error`,w=`${n}/manual`,a={RESULT:y,REQUEST:U,RUNNING:g,ERROR:p,MANUAL:w},{document:L,window:d}=f,r=T.getChannel(),o=!1,l,A=async t=>{let{manual:e}=await R(t);e||await _(t)},_=async t=>{l=t;try{let e=await R(t);if(!o){o=!0,r.emit(a.RUNNING);let i=(await N(()=>import("./axe-Cjc8MYd8.js").then(S=>S.a),__vite__mapDeps([0,1]),import.meta.url)).default,{element:u="#storybook-root",config:s,options:E={}}=e,O=L.querySelector(u);if(!O)return;i.reset(),s&&i.configure(s);let m=await i.run(O,E),c=JSON.parse(JSON.stringify(m));l===t?r.emit(a.RESULT,c):(o=!1,_(l))}}catch(e){r.emit(a.ERROR,e)}finally{o=!1}},R=async t=>{let{parameters:e}=await d.__STORYBOOK_STORY_STORE__.loadStory({storyId:t})||{};return e.a11y||{config:{},options:{}}};r.on(a.REQUEST,A);r.on(a.MANUAL,_);
-function __vite__mapDeps(indexes) {
-  if (!__vite__mapDeps.viteFileDeps) {
-    __vite__mapDeps.viteFileDeps = ["./axe-Cjc8MYd8.js","./_commonjsHelpers-BosuxZz1.js"]
-  }
-  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
-}

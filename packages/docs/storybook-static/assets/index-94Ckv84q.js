@@ -116,9 +116,6 @@ import{j as d}from"./jsx-runtime-BvI67ttx.js";var ge=Object.defineProperty,L=Obj
 .relative {
   position: relative;
 }
-.-top-20 {
-  top: -5rem;
-}
 .left-0 {
   left: 0px;
 }
@@ -150,10 +147,6 @@ import{j as d}from"./jsx-runtime-BvI67ttx.js";var ge=Object.defineProperty,L=Obj
 .inline-flex {
   display: inline-flex;
 }
-.size-4 {
-  width: 1rem;
-  height: 1rem;
-}
 .h-10 {
   height: 2.5rem;
 }
@@ -166,11 +159,11 @@ import{j as d}from"./jsx-runtime-BvI67ttx.js";var ge=Object.defineProperty,L=Obj
 .h-16 {
   height: 4rem;
 }
-.w-full {
-  width: 100%;
-}
 .w-64 {
   width: 16rem;
+}
+.w-full {
+  width: 100%;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -339,6 +332,10 @@ import{j as d}from"./jsx-runtime-BvI67ttx.js";var ge=Object.defineProperty,L=Obj
 .leading-tight {
   line-height: 1.25;
 }
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity, 1));
@@ -346,13 +343,6 @@ import{j as d}from"./jsx-runtime-BvI67ttx.js";var ge=Object.defineProperty,L=Obj
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-}
-.opacity-0 {
-  opacity: 0;
 }
 .opacity-50 {
   opacity: 0.5;
