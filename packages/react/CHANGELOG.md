@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.1.2
+
+### Patch Changes
+
+- 676b468: feat add asChild and radix implementations on the button component
+
 ## 4.1.1
 
 ### Patch Changes
