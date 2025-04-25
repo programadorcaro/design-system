@@ -36,6 +36,8 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
-    "@les-ui/tokens": "*"
+    "@les-ui/tokens": "*",
+    "@radix-ui/react-slot": "^1.2.0",
+    "class-variance-authority": "^0.7.1"
   }
 }
