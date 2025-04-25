@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.1.1
+
+### Patch Changes
+
+- add an extra config for build
+
 ## 4.1.0
 
 ### Minor Changes

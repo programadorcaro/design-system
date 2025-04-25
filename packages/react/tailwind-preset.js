@@ -1,8 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./node_modules/@les-ui/react/dist/**/*.{js,jsx,ts,tsx}"
-  ],
+const config = {
   theme: {
     extend: {
       fontFamily: {
@@ -12,5 +9,7 @@ module.exports = {
   },
   corePlugins: {
     preflight: false,
-  }
-} 
+  },
+};
+
+module.exports = config;
