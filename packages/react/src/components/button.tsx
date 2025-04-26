@@ -8,24 +8,28 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-orange-400 text-white hover:bg-orange-500",
-        destructive: "bg-red-500 text-white shadow-sm hover:bg-red-600",
+        default: "bg-orange-500 text-white hover:bg-orange-400",
+        destructive: "bg-red-500 text-white shadow-sm hover:bg-red-400",
         outline:
           "border border-input bg-transparent shadow-sm hover:bg-gray-100",
-        secondary: "bg-gray-200 text-gray-900 shadow-sm hover:bg-gray-300",
+        secondary: "bg-gray-300 text-gray-900 shadow-sm hover:bg-gray-200",
         ghost: "hover:bg-gray-100",
         link: "text-orange-400 underline-offset-4 hover:underline",
       },
       size: {
-        sm: "px-4 py-2 h-10 text-sm",
-        md: "px-5 py-3 h-12 text-md",
-        lg: "px-6 py-4 h-14 text-lg",
-        xl: "px-8 py-5 h-16 text-xl",
+        xs: "px-3 py-2 h-6 text-xs",
+        sm: "px-4 py-2 h-8 text-xs",
+        md: "px-5 py-3 h-9 text-sm",
+        lg: "px-6 py-4 h-10 text-base",
+        xl: "px-8 py-5 h-12 text-lg",
+      },
+      disabled: {
+        true: "opacity-50 cursor-not-allowed",
       },
     },
     defaultVariants: {
       variant: "default",
-      size: "sm",
+      size: "md",
     },
   }
 );
@@ -34,14 +38,15 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  disabled?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, disabled, ...props }, ref) => {
     if (asChild) {
       return (
         <Slot
-          className={cn(buttonVariants({ variant, size, className }))}
+          className={cn(buttonVariants({ variant, size, className, disabled }))}
           ref={ref}
           {...props}
         />
@@ -49,7 +54,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     }
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, className, disabled }))}
         ref={ref}
         {...props}
       />

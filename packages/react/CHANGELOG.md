@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.1.3
+
+### Patch Changes
+
+- Add more precise variations sizes to button component
+
 ## 4.1.2
 
 ### Patch Changes
