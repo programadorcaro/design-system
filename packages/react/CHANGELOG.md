@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.1.6
+
+### Patch Changes
+
+- change base color
+
 ## 4.1.5
 
 ### Patch Changes
