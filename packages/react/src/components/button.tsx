@@ -13,7 +13,7 @@ const buttonVariants = cva(
         outline:
           "border border-input bg-transparent shadow-sm hover:bg-gray-100",
         secondary: "bg-gray-300 text-gray-900 shadow-sm hover:bg-gray-200",
-        ghost: "hover:bg-gray-100",
+        ghost: "hover:opacity-80",
         link: "text-orange-400 underline-offset-4 hover:underline",
       },
       size: {

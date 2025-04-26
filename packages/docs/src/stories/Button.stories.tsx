@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "@les-ui/react";
+import { ComponentType } from "react";
 
-const meta = {
+const meta: Meta<ButtonProps> = {
   title: "Form/Button",
-  component: Button,
+  component: Button as ComponentType<ButtonProps>,
   tags: ["autodocs"],
   args: {
-    // Default args for all stories
     children: "Button",
     size: "md",
   },
@@ -56,6 +56,13 @@ export const Disabled: Story = {
   args: {
     size: "md",
     disabled: true,
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    size: "md",
+    variant: "ghost",
   },
 };
 
