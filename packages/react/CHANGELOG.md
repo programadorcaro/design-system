@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.1.5
+
+### Patch Changes
+
+- change main button color
+
 ## 4.1.4
 
 ### Patch Changes
