@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { TextInput, TextInputProps } from "@les-ui/react";
+import React, { useState } from "react";
 
 const meta: Meta<TextInputProps> = {
   title: "Form/TextInput",
@@ -7,14 +8,24 @@ const meta: Meta<TextInputProps> = {
   tags: ["autodocs"],
   args: {
     placeholder: "Type your text",
+    inputSize: "md",
+    variant: "default",
   },
   argTypes: {
-    size: {
+    inputSize: {
       description: "Size of the input",
       control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: {
         defaultValue: { summary: "md" },
+      },
+    },
+    variant: {
+      description: "Visual variant of the input",
+      control: "inline-radio",
+      options: ["default", "filled", "withClear"],
+      table: {
+        defaultValue: { summary: "default" },
       },
     },
     disabled: {
@@ -32,7 +43,11 @@ export default meta;
 type Story = StoryObj<TextInputProps>;
 
 // Base story with default size (md)
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    variant: "default",
+  },
+};
 
 // Size variants
 export const Small: Story = {
@@ -56,5 +71,27 @@ export const Large: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+};
+
+export const Filled: Story = {
+  args: {
+    variant: "filled",
+  },
+};
+
+export const WithClear: Story = {
+  render: (args) => {
+    const [value, setValue] = useState("Input Field");
+    return (
+      <TextInput
+        {...args}
+        variant="withClear"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue("")}
+        placeholder="Input Field"
+      />
+    );
   },
 };

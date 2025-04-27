@@ -1,34 +1,103 @@
-import { InputHTMLAttributes } from "react";
+import { useRef } from "react";
 import { cn } from "../lib/utils";
+import { cva, VariantProps } from "class-variance-authority";
+import * as LucideIcons from "lucide-react";
+import { Button } from "./button";
+import { X } from "lucide-react";
 
-export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  inputSize?: "sm" | "md" | "lg";
-}
+const inputVariants = cva(
+  "flex items-center border rounded-sm text-sm transition-colors focus-within:ring-1 focus-within:ring-orange-300 w-full",
+  {
+    variants: {
+      variant: {
+        default: "bg-white border-[#E2E2E2]",
+        filled: "bg-gray-100 border-transparent",
+        withClear: "bg-gray-100 border-transparent",
+      },
+      inputSize: {
+        sm: "px-2 py-2 gap-2",
+        md: "px-4 py-3 gap-3",
+        lg: "px-4 py-4 gap-4",
+      },
+      disabled: {
+        true: "opacity-50 cursor-not-allowed",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      inputSize: "md",
+    },
+  }
+);
 
-const sizeClasses = {
-  sm: "px-3 py-2 text-sm",
-  md: "px-4 py-3 text-md",
-  lg: "px-5 py-4 text-lg",
-};
+export interface TextInputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "disabled">,
+    VariantProps<typeof inputVariants> {}
 
 export function TextInput({
   inputSize = "md",
+  variant = "default",
+  disabled,
   className,
+  onChange,
+  value,
   ...props
 }: TextInputProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleClear = () => {
+    if (onChange) {
+      // Controlled input: fire onChange with empty value
+      const event = {
+        ...((window?.Event
+          ? new Event("input", { bubbles: true })
+          : {}) as any),
+        target: { value: "" },
+      };
+      onChange(event as React.ChangeEvent<HTMLInputElement>);
+    } else if (inputRef.current) {
+      // Uncontrolled input: clear value directly
+      inputRef.current.value = "";
+    }
+    // Refocus input
+    inputRef.current?.focus();
+  };
+
+  const XIcon = X as React.ElementType;
+
   return (
-    <input
-      className={cn(
-        "font-default box-border w-full rounded-sm",
-        "bg-gray-900 text-white",
-        "placeholder:text-gray-400",
-        "focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2",
-        "disabled:cursor-not-allowed disabled:opacity-50",
-        sizeClasses[inputSize],
-        className
-      )}
-      {...props}
-    />
+    <div className="flex items-center relative w-full">
+      <input
+        ref={inputRef}
+        className={cn(
+          inputVariants({
+            inputSize,
+            variant,
+            disabled: !!disabled,
+            className,
+          }),
+          "focus:outline-none"
+        )}
+        disabled={!!disabled}
+        value={value}
+        onChange={onChange}
+        {...props}
+      />
+      {variant === "withClear" &&
+      !disabled &&
+      (value || inputRef.current?.value) ? (
+        <Button
+          variant="ghost"
+          size="sm"
+          type="button"
+          className="absolute right-2"
+          tabIndex={-1}
+          onClick={handleClear}
+        >
+          <XIcon className="w-4 h-4" aria-hidden="true" />
+        </Button>
+      ) : null}
+    </div>
   );
 }
 

@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.0
+
+### Minor Changes
+
+- Add input component
+
 ## 4.1.7
 
 ### Patch Changes
