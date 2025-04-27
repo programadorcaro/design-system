@@ -34,13 +34,20 @@ const buttonVariants = cva(
   }
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-  disabled?: boolean;
-  children: React.ReactNode;
-}
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean;
+    disabled?: boolean;
+    children: React.ReactNode;
+    size?: "xs" | "sm" | "md" | "lg" | "xl";
+    variant?:
+      | "default"
+      | "destructive"
+      | "outline"
+      | "secondary"
+      | "ghost"
+      | "link";
+  };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (

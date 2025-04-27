@@ -95,3 +95,18 @@ export const WithClear: Story = {
     );
   },
 };
+
+export const WithLabel: Story = {
+  args: {
+    label: "Email",
+    placeholder: "Enter your email",
+  },
+};
+
+export const WithCustomLabel: Story = {
+  args: {
+    label: "Username",
+    labelProps: { className: "text-red-500 text-lg" },
+    placeholder: "Enter your username",
+  },
+};

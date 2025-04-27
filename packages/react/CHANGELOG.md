@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.1
+
+### Patch Changes
+
+- Add label into the text-input component and fix some ui issues
+
 ## 4.2.0
 
 ### Minor Changes

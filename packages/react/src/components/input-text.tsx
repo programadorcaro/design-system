@@ -1,18 +1,17 @@
 import { useRef } from "react";
 import { cn } from "../lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import * as LucideIcons from "lucide-react";
 import { Button } from "./button";
 import { X } from "lucide-react";
 
 const inputVariants = cva(
-  "flex items-center border rounded-sm text-sm transition-colors focus-within:ring-1 focus-within:ring-orange-300 w-full",
+  "flex items-center border rounded-sm text-sm transition-colors focus-within:ring-1 focus-within:ring-orange-300 w-full placeholder:text-gray-400 placeholder:text-sm",
   {
     variants: {
       variant: {
         default: "bg-white border-[#E2E2E2]",
-        filled: "bg-gray-100 border-transparent",
-        withClear: "bg-gray-100 border-transparent",
+        filled: "bg-gray-50 border border-gray-300 text-gray-900",
+        withClear: "bg-gray-100 border border-gray-300 text-gray-900",
       },
       inputSize: {
         sm: "px-2 py-2 gap-2",
@@ -30,9 +29,15 @@ const inputVariants = cva(
   }
 );
 
-export interface TextInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "disabled">,
-    VariantProps<typeof inputVariants> {}
+export type TextInputProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "disabled"
+> &
+  VariantProps<typeof inputVariants> & {
+    variant?: "default" | "filled" | "withClear";
+    label?: string;
+    labelProps?: React.LabelHTMLAttributes<HTMLLabelElement>;
+  };
 
 export function TextInput({
   inputSize = "md",
@@ -41,6 +46,8 @@ export function TextInput({
   className,
   onChange,
   value,
+  label,
+  labelProps,
   ...props
 }: TextInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -66,38 +73,51 @@ export function TextInput({
   const XIcon = X as React.ElementType;
 
   return (
-    <div className="flex items-center relative w-full">
-      <input
-        ref={inputRef}
-        className={cn(
-          inputVariants({
-            inputSize,
-            variant,
-            disabled: !!disabled,
-            className,
-          }),
-          "focus:outline-none"
-        )}
-        disabled={!!disabled}
-        value={value}
-        onChange={onChange}
-        {...props}
-      />
-      {variant === "withClear" &&
-      !disabled &&
-      (value || inputRef.current?.value) ? (
-        <Button
-          variant="ghost"
-          size="sm"
-          type="button"
-          className="absolute right-2"
-          tabIndex={-1}
-          onClick={handleClear}
+    <>
+      {label && (
+        <label
+          {...labelProps}
+          className={cn(
+            "block mb-2 text-sm font-medium text-gray-900",
+            labelProps?.className
+          )}
         >
-          <XIcon className="w-4 h-4" aria-hidden="true" />
-        </Button>
-      ) : null}
-    </div>
+          {label}
+        </label>
+      )}
+      <div className="flex items-center relative w-full">
+        <input
+          ref={inputRef}
+          className={cn(
+            inputVariants({
+              inputSize,
+              variant,
+              disabled: !!disabled,
+              className,
+            }),
+            "focus:outline-none"
+          )}
+          disabled={!!disabled}
+          value={value}
+          onChange={onChange}
+          {...props}
+        />
+        {variant === "withClear" &&
+        !disabled &&
+        (value || inputRef.current?.value) ? (
+          <Button
+            variant="ghost"
+            size="sm"
+            type="button"
+            className="absolute right-2"
+            tabIndex={-1}
+            onClick={handleClear}
+          >
+            <XIcon className="w-4 h-4" aria-hidden="true" />
+          </Button>
+        ) : null}
+      </div>
+    </>
   );
 }
 
