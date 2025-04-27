@@ -38,7 +38,6 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
     disabled?: boolean;
-    children: React.ReactNode;
     size?: "xs" | "sm" | "md" | "lg" | "xl";
     variant?:
       | "default"
@@ -50,10 +49,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { className, variant, size, asChild = false, disabled, children, ...props },
-    ref
-  ) => {
+  ({ className, variant, size, asChild = false, disabled, ...props }, ref) => {
     if (asChild) {
       return (
         <Slot
@@ -68,9 +64,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, className, disabled }))}
         ref={ref}
         {...props}
-      >
-        {children}
-      </button>
+      />
     );
   }
 );

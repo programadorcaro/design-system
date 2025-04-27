@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.2
+
+### Patch Changes
+
+- Fix button issue
+
 ## 4.2.1
 
 ### Patch Changes
