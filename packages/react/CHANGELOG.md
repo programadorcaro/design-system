@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.3
+
+### Patch Changes
+
+- change the color to a new colorscheme
+
 ## 4.2.2
 
 ### Patch Changes
