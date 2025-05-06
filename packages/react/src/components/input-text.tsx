@@ -5,7 +5,7 @@ import { Button } from "./button";
 import { X } from "lucide-react";
 
 const inputVariants = cva(
-  "flex items-center border rounded-sm text-sm transition-colors focus-within:ring-1 focus-within:ring-orange-300 w-full placeholder:text-gray-400 placeholder:text-sm",
+  "flex items-center border rounded-sm text-sm transition-colors focus-within:ring-1 focus-within:ring-pink w-full placeholder:text-gray-400 placeholder:text-sm",
   {
     variants: {
       variant: {
