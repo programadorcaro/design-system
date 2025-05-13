@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.5
+
+### Patch Changes
+
+- Add tabs component
+
 ## 4.2.4
 
 ### Patch Changes

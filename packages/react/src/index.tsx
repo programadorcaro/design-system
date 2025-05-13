@@ -7,3 +7,4 @@ export * from "./components/input-text";
 export * from "./components/text";
 export * from "./components/form";
 export * from "./components/dropdown";
+export * from "./components/tabs";
