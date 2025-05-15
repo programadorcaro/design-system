@@ -46,17 +46,20 @@ export function Tabs({
         </label>
       )}
       <div
-        className={cn("flex bg-black rounded-md overflow-hidden", className)}
+        className={cn(
+          "flex bg-[#2c2c2e] rounded-md overflow-hidden border border-zinc-700",
+          className
+        )}
       >
         {tabs.map((tab) => (
           <button
             key={tab.value}
             type="button"
             className={cn(
-              "flex-1 py-3 text-xs transition-colors",
+              "flex-1 py-3 text-xs transition-colors border-x-[0.5px] border-zinc-700",
               active === tab.value
-                ? "bg-blue-100 text-white border border-[#232325] font-semibold"
-                : "bg-transparent text-gray-400 border border-transparent hover:bg-[#232325] hover:text-white",
+                ? "bg-neutral-700 text-white font-semibold"
+                : "bg-transparent text-gray-300 hover:bg-zinc-700 hover:text-white",
               "focus:outline-none font-normal"
             )}
             onClick={() => handleTabClick(tab)}

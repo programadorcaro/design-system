@@ -1,91 +1,55 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Tabs, Tab } from "@les-ui/react";
 import React, { useState } from "react";
+import { Tabs, Tab } from "@les-ui/react";
+
+export default {
+  title: "Components/Tabs",
+  component: Tabs,
+};
 
 const tabOptions: Tab[] = [
   { label: "Mp4", value: "mp4" },
   { label: "GIF", value: "gif" },
 ];
 
-const meta: Meta = {
-  title: "Components/Tabs",
-  component: Tabs,
-  tags: ["autodocs"],
-  args: {
-    label: "Export as",
-    labelProps: { className: "text-inherit" },
-    tabs: tabOptions,
-  },
-  argTypes: {
-    label: {
-      description: "Label for the Tabs group",
-      control: "text",
-      table: { defaultValue: { summary: "Export as" } },
-    },
-    labelProps: {
-      description: "Props for the label element",
-      control: "object",
-    },
-    tabs: {
-      description: "Array of tab options",
-      control: false,
-    },
-    onChange: {
-      description: "Callback when tab changes",
-      control: false,
-    },
-    defaultActive: {
-      description: "Default active tab value (for controlled usage)",
-      control: "text",
-    },
-  },
-};
+export const Basic = () => (
+  <div className="w-1/3">
+    <Tabs
+      label="Export as"
+      labelProps={{ className: "text-white" }}
+      tabs={tabOptions}
+      onChange={(tab) => console.log("Selected tab:", tab)}
+    />
+  </div>
+);
 
-export default meta;
-type Story = StoryObj<typeof Tabs>;
-
-export const Basic: Story = {
-  args: {},
-  render: (args) => (
-    <div className="w-72">
-      <Tabs {...args} onChange={(tab) => console.log("Selected tab:", tab)} />
+export const Controlled = () => {
+  const [active, setActive] = useState("gif");
+  return (
+    <div className="w-1/3">
+      <Tabs
+        label="Export as (Controlled)"
+        labelProps={{ className: "text-white" }}
+        tabs={tabOptions}
+        defaultActive={active}
+        onChange={(tab) => setActive(tab.value)}
+      />
     </div>
-  ),
+  );
 };
 
-export const MultipleTabs: Story = {
-  args: {},
-  render: (args) => (
+export const MultipleTabs = () => {
+  return (
     <div className="w-2/3">
       <Tabs
         tabs={[
-          ...args.tabs,
+          ...tabOptions,
           { label: "MKV", value: "mkv" },
           { label: "MP3", value: "mp3" },
         ]}
-        label={args.label}
-        labelProps={args.labelProps}
+        label="Export as"
+        labelProps={{ className: "text-white" }}
         onChange={(tab) => console.log("Selected tab:", tab)}
       />
     </div>
-  ),
-};
-
-export const Controlled: Story = {
-  args: {
-    label: "Export as (Controlled)",
-    defaultActive: "gif",
-  },
-  render: (args) => {
-    const [active, setActive] = useState("gif");
-    return (
-      <div className="w-72">
-        <Tabs
-          {...args}
-          defaultActive={active}
-          onChange={(tab) => setActive(tab.value)}
-        />
-      </div>
-    );
-  },
+  );
 };

@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.6
+
+### Patch Changes
+
+- Add onChangeProps to the final component
+
 ## 4.2.5
 
 ### Patch Changes
