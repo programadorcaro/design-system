@@ -53,3 +53,15 @@ export const MultipleTabs = () => {
     </div>
   );
 };
+
+export const Disabled = () => (
+  <div className="w-1/3">
+    <Tabs
+      label="Export as"
+      labelProps={{ className: "text-white" }}
+      tabs={tabOptions}
+      disabled
+      onChange={(tab) => console.log("Selected tab:", tab)}
+    />
+  </div>
+);

@@ -13,6 +13,7 @@ export type TabsProps = {
   className?: string;
   label?: string;
   labelProps?: React.LabelHTMLAttributes<HTMLLabelElement>;
+  disabled?: boolean;
 };
 
 export function Tabs({
@@ -22,6 +23,7 @@ export function Tabs({
   className,
   label,
   labelProps,
+  disabled,
 }: TabsProps) {
   const [active, setActive] = useState(
     defaultActive || (tabs.length > 0 ? tabs[0].value : "")
@@ -48,6 +50,7 @@ export function Tabs({
       <div
         className={cn(
           "flex bg-[#2c2c2e] rounded-md overflow-hidden border border-zinc-700",
+          disabled && "opacity-80 hover:cursor-not-allowed",
           className
         )}
       >
@@ -56,13 +59,18 @@ export function Tabs({
             key={tab.value}
             type="button"
             className={cn(
+              disabled && "opacity-80 hover:cursor-not-allowed",
               "flex-1 py-3 text-xs transition-colors border-x-[0.5px] border-zinc-700",
               active === tab.value
                 ? "bg-neutral-700 text-white font-semibold"
                 : "bg-transparent text-gray-300 hover:bg-zinc-700 hover:text-white",
               "focus:outline-none font-normal"
             )}
-            onClick={() => handleTabClick(tab)}
+            onClick={() => {
+              if (disabled) return;
+
+              handleTabClick(tab);
+            }}
           >
             {tab.label}
           </button>

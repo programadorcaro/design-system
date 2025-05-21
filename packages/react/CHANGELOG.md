@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.7
+
+### Patch Changes
+
+- Add disabled version on the Tabs component
+
 ## 4.2.6
 
 ### Patch Changes
