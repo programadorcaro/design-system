@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.8
+
+### Patch Changes
+
+- add onclick removal when disabled is true
+
 ## 4.2.7
 
 ### Patch Changes

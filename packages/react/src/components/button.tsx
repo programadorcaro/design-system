@@ -54,7 +54,10 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, disabled, ...props }, ref) => {
+  (
+    { className, variant, size, asChild = false, disabled, onClick, ...props },
+    ref
+  ) => {
     if (asChild) {
       return (
         <Slot
@@ -68,6 +71,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={cn(buttonVariants({ variant, size, className, disabled }))}
         ref={ref}
+        onClick={disabled ? undefined : onClick}
         {...props}
       />
     );
