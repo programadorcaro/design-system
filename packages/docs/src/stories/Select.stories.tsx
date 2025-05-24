@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Select } from "@les-ui/react";
+import { Select, SelectProps, SelectOption } from "@les-ui/react";
 import React from "react";
 
-const meta: Meta<typeof Select> = {
+const meta: Meta<SelectProps> = {
   title: "Form/Select",
   component: Select,
   tags: ["autodocs"],
@@ -35,7 +35,7 @@ const meta: Meta<typeof Select> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Select>;
+type Story = StoryObj<SelectProps>;
 
 const options = [
   { value: "Option1", label: "Option 1" },
@@ -52,7 +52,24 @@ export const Default: Story = {
   render: (args) => (
     <Select {...args}>
       {options.map((option) => (
-        <Select.Option
+        <SelectOption
+          key={option.value}
+          value={option.value}
+          label={option.label}
+        />
+      ))}
+    </Select>
+  ),
+};
+
+export const WithCustomStyle: Story = {
+  args: {
+    label: "Select an option",
+  },
+  render: (args) => (
+    <Select {...args} inputClassName="bg-red-500 h-10">
+      {options.map((option) => (
+        <SelectOption
           key={option.value}
           value={option.value}
           label={option.label}
@@ -70,7 +87,7 @@ export const WithValue: Story = {
   render: (args) => (
     <Select {...args}>
       {options.map((option) => (
-        <Select.Option
+        <SelectOption
           key={option.value}
           value={option.value}
           label={option.label}
@@ -88,7 +105,7 @@ export const Disabled: Story = {
   render: (args) => (
     <Select {...args}>
       {options.map((option) => (
-        <Select.Option
+        <SelectOption
           key={option.value}
           value={option.value}
           label={option.label}
@@ -110,7 +127,7 @@ export const Controlled: Story = {
           onChange={(newValue) => setValue(newValue)}
         >
           {options.map((option) => (
-            <Select.Option
+            <SelectOption
               key={option.value}
               value={option.value}
               label={option.label}

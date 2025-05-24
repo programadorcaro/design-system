@@ -35,6 +35,7 @@ export type SelectProps = {
   label?: string;
   labelProps?: React.LabelHTMLAttributes<HTMLLabelElement>;
   disabled?: boolean;
+  inputClassName?: string;
 } & VariantProps<typeof selectVariants>;
 
 export type SelectOptionProps = {
@@ -59,6 +60,7 @@ export function Select({
   disabled,
   variant = "default",
   selectSize = "md",
+  inputClassName = "",
 }: SelectProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const selectRef = React.useRef<HTMLDivElement>(null);
@@ -108,7 +110,8 @@ export function Select({
             type="button"
             className={cn(
               selectVariants({ variant, selectSize, disabled }),
-              "justify-between"
+              "justify-between",
+              inputClassName
             )}
             onClick={() => !disabled && setIsOpen(!isOpen)}
             disabled={disabled}
@@ -172,5 +175,3 @@ export function SelectOption({
     </button>
   );
 }
-
-Select.Option = SelectOption;

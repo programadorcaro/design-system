@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.10
+
+### Patch Changes
+
+- Add inputCustomClass functionality on select component
+
 ## 4.2.9
 
 ### Patch Changes
