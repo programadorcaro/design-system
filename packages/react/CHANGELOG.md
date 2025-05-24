@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.9
+
+### Patch Changes
+
+- Add select component
+
 ## 4.2.8
 
 ### Patch Changes

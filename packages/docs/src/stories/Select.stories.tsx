@@ -1,13 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@les-ui/react";
+import { Select } from "@les-ui/react";
 import React from "react";
 
 const meta: Meta<typeof Select> = {
@@ -45,130 +37,90 @@ const meta: Meta<typeof Select> = {
 export default meta;
 type Story = StoryObj<typeof Select>;
 
-// Base story with default size (md)
+const options = [
+  { value: "Option1", label: "Option 1" },
+  { value: "Option2", label: "Option 2" },
+  { value: "Option3", label: "Option 3" },
+  { value: "Option4", label: "Option 4" },
+  { value: "Option5", label: "Option 5" },
+];
+
 export const Default: Story = {
+  args: {
+    label: "Select an option",
+  },
   render: (args) => (
     <Select {...args}>
-      <SelectTrigger>
-        <SelectValue placeholder="Select an option" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="option1">Option 1</SelectItem>
-          <SelectItem value="option2">Option 2</SelectItem>
-          <SelectItem value="option3">Option 3</SelectItem>
-        </SelectGroup>
-      </SelectContent>
+      {options.map((option) => (
+        <Select.Option
+          key={option.value}
+          value={option.value}
+          label={option.label}
+        />
+      ))}
     </Select>
   ),
 };
 
-// Size variants
-export const Small: Story = {
+export const WithValue: Story = {
+  args: {
+    label: "Select an option",
+    value: "Option2",
+  },
   render: (args) => (
     <Select {...args}>
-      <SelectTrigger selectSize="sm">
-        <SelectValue placeholder="Select an option" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="option1">Option 1</SelectItem>
-          <SelectItem value="option2">Option 2</SelectItem>
-          <SelectItem value="option3">Option 3</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  ),
-};
-
-export const Medium: Story = {
-  render: (args) => (
-    <Select {...args}>
-      <SelectTrigger selectSize="md">
-        <SelectValue placeholder="Select an option" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="option1">Option 1</SelectItem>
-          <SelectItem value="option2">Option 2</SelectItem>
-          <SelectItem value="option3">Option 3</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  ),
-};
-
-export const Large: Story = {
-  render: (args) => (
-    <Select {...args}>
-      <SelectTrigger selectSize="lg">
-        <SelectValue placeholder="Select an option" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="option1">Option 1</SelectItem>
-          <SelectItem value="option2">Option 2</SelectItem>
-          <SelectItem value="option3">Option 3</SelectItem>
-        </SelectGroup>
-      </SelectContent>
+      {options.map((option) => (
+        <Select.Option
+          key={option.value}
+          value={option.value}
+          label={option.label}
+        />
+      ))}
     </Select>
   ),
 };
 
 export const Disabled: Story = {
+  args: {
+    label: "Select an option",
+    disabled: true,
+  },
   render: (args) => (
-    <Select {...args} disabled>
-      <SelectTrigger>
-        <SelectValue placeholder="Select an option" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="option1">Option 1</SelectItem>
-          <SelectItem value="option2">Option 2</SelectItem>
-          <SelectItem value="option3">Option 3</SelectItem>
-        </SelectGroup>
-      </SelectContent>
+    <Select {...args}>
+      {options.map((option) => (
+        <Select.Option
+          key={option.value}
+          value={option.value}
+          label={option.label}
+        />
+      ))}
     </Select>
   ),
 };
 
-export const Filled: Story = {
-  render: (args) => (
-    <Select {...args}>
-      <SelectTrigger variant="filled">
-        <SelectValue placeholder="Select an option" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="option1">Option 1</SelectItem>
-          <SelectItem value="option2">Option 2</SelectItem>
-          <SelectItem value="option3">Option 3</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  ),
-};
+export const Controlled: Story = {
+  render: () => {
+    const [value, setValue] = React.useState("");
 
-export const WithGroups: Story = {
-  render: (args) => (
-    <Select {...args}>
-      <SelectTrigger>
-        <SelectValue placeholder="Select a fruit" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="orange">Orange</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Vegetables</SelectLabel>
-          <SelectItem value="carrot">Carrot</SelectItem>
-          <SelectItem value="potato">Potato</SelectItem>
-          <SelectItem value="tomato">Tomato</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  ),
+    return (
+      <div className="space-y-4">
+        <Select
+          label="Controlled Select"
+          value={value}
+          onChange={(newValue) => setValue(newValue)}
+        >
+          {options.map((option) => (
+            <Select.Option
+              key={option.value}
+              value={option.value}
+              label={option.label}
+            />
+          ))}
+        </Select>
+        <div className="text-sm text-gray-600">
+          Selected value: {value || "None"}
+        </div>
+      </div>
+    );
+  },
 };
