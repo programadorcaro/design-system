@@ -9,3 +9,4 @@ export * from "./components/form";
 export * from "./components/dropdown";
 export * from "./components/tabs";
 export * from "./components/select";
+export * from "./components/checkbox";

@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.11
+
+### Patch Changes
+
+- Add checkbox component
+
 ## 4.2.10
 
 ### Patch Changes
