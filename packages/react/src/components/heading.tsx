@@ -20,7 +20,7 @@ export function Heading({ size = "md", className, ...props }: HeadingProps) {
   return (
     <h2
       className={cn(
-        "font-default leading-tight m-0 text-gray-300",
+        "font-default leading-tight m-0 text-gray-300 bg-red-500",
         sizeClasses[size],
         className
       )}

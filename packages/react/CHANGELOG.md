@@ -1,5 +1,11 @@
 # @les-ui/react
 
+## 4.2.12
+
+### Patch Changes
+
+- fix: change bg to red on heading component
+
 ## 4.2.11
 
 ### Patch Changes
